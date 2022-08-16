@@ -13,7 +13,8 @@ def run_Yolo() :
 
     try:
         with open(f'./data/{uploaded_file.name}', 'wb') as f:
-            f.write(uploaded_file.getbuffer())  
+            f.write(uploaded_file.getbuffer())
+        os.system("ls ./data")
     except:
         st.write("이미지나, 동영상 파일을 업로드해주세요.")
         
@@ -35,6 +36,11 @@ def run_Yolo() :
             elif uploaded_file.name.endswith(video):
                 os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
                 st.video("res.mp4")
+
+        os.system("rm res.mp4")
+        os.system(f"rm ./data/{uploaded_file.name}")
+
+        os.system(f"rm -r ./runs/detect/")
 
     except:
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
