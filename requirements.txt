@@ -1,0 +1,6 @@
+torch
+torchvision
+tqdm
+pyyaml
+seaborn
+opencv-python-headless
