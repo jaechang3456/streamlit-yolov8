@@ -37,11 +37,12 @@ def run_Yolo() :
                 os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
                 st.video("res.mp4")
 
-        os.system("rm res.mp4")
-        os.system(f"rm ./data/{uploaded_file.name}")
-
-        os.system(f"rm -r ./runs/detect/")
-
     except:
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
+
+
+    os.system("rm res.mp4")
+    os.system(f"rm ./data/{uploaded_file.name}")
+
+    os.system(f"rm -r ./runs/detect/")
 
