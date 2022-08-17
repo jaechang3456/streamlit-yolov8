@@ -21,7 +21,12 @@ def run_Yolo() :
     st.write("서버의 한계로 시간이 오래 걸릴수 있습니다.")
 
     if _btn == True:
-        os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
+        if os.path.exists("./runs/detect"):
+            os.system(f"rm -r ./runs/detect/")
+            os.system("rm res.mp4")
+            os.system(f"rm ./data/{uploaded_file.name}")
+        else:
+            os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
 
     try:
         _chk = st.checkbox("결과보기")
@@ -36,12 +41,10 @@ def run_Yolo() :
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
 
 
-    downlod_file = st.download_button("결과를 다운로드 하실거면 클릭하세요")
+    downlod_file = st.download_button("결과를 다운로드 하실거면 클릭하세요", data="res.mp4")
     
-    # if os.path.exists("./runs/detect"):
-    #     os.system(f"rm -r ./runs/detect/")
-    # #     os.system("rm res.mp4")
-    #     os.system(f"rm ./data/{uploaded_file.name}")
+    
+        
 
     
 
