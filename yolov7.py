@@ -6,7 +6,7 @@ video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
     os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt -O ./best.pt")
-    os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/traced_model.pt -O ./traced_model.pt")
+    # os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/traced_model.pt -O ./traced_model.pt")
     st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
