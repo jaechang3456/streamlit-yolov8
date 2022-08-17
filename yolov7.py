@@ -8,7 +8,7 @@ def run_Yolo() :
     st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
-    st.text("공백이 있는 파일의 경우 지원하지 않습니다.")
+    st.text("공백이 있는 파일이나 특수문자가 들어간 파일의 경우 지원하지 않습니다.")
 
     try:
         with open(f'./data/{uploaded_file.name}', 'wb') as f:
@@ -23,7 +23,7 @@ def run_Yolo() :
         if os.path.exists("./runs/detect"):
             os.system(f"rm -r ./runs/detect/")
             os.system("rm res.mp4")
-            os.system(f"rm ./data/{uploaded_file.name}")
+            os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
         else:
             os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
 
@@ -33,6 +33,8 @@ def run_Yolo() :
         if _chk == True:
             if uploaded_file.name.endswith(image):
                 st.image(f'./runs/detect/exp/{uploaded_file.name}')
+                with open(f'./runs/detect/exp/{uploaded_file.name}', "rb") as fp:
+                    st.download_button("결과를 다운로드 하실거면 클릭하세요", fp,"res.jpg","image/jpg" )
             elif uploaded_file.name.endswith(video):
                 if not os.path.exists("res.mp4"):
                     os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
