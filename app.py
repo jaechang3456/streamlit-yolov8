@@ -2,11 +2,12 @@ import streamlit as st
 import os
 from yolov7 import run_Yolo
 
+os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt -O ./best.pt")
+os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/traced_model.pt -O ./traced_model.pt")
+
 def main():
     
     st.set_page_config(page_title="yolov7 ObjectDetection", page_icon="./data/LJC.jpg")
-    os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt -O ./best.pt")
-    os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/traced_model.pt -O ./traced_model.pt")
 
     st.title('yolov7 ObjectDetection')
     # 사이드바 메뉴
