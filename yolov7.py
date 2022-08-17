@@ -20,7 +20,7 @@ def run_Yolo() :
     st.write("서버의 한계로 시간이 오래 걸릴수 있습니다.")
 
     if _btn == True:
-        os.system(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}")
+        os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
 
     try:
         _chk = st.checkbox("결과보기")
