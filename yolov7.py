@@ -14,9 +14,8 @@ def run_Yolo() :
     try:
         with open(f'./data/{uploaded_file.name}', 'wb') as f:
             f.write(uploaded_file.getbuffer())
-        os.system("ls ./data")
     except:
-        st.write("이미지나, 동영상 파일을 업로드해주세요.")
+        st.warning("이미지나, 동영상 파일을 업로드해주세요.")
         
 
     _btn = st.button("RUN Inference")
@@ -25,8 +24,6 @@ def run_Yolo() :
     if _btn == True:
         subprocess.call(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
         # subprocess.call(f"python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
-    else:
-        pass
 
     try:
         _chk = st.checkbox("결과보기")
@@ -41,8 +38,8 @@ def run_Yolo() :
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
 
 
-    os.system("rm res.mp4")
-    os.system(f"rm ./data/{uploaded_file.name}")
+    # os.system("rm res.mp4")
+    # os.system(f"rm ./data/{uploaded_file.name}")
 
-    os.system(f"rm -r ./runs/detect/")
+    # os.system(f"rm -r ./runs/detect/")
 
