@@ -1,5 +1,4 @@
 import streamlit as st
-import subprocess
 import os
 
 image = (".jpg", ".png", ".jpeg")
@@ -7,6 +6,7 @@ video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
     os.system("ls -al")
+    os.system("df -h")
     st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
@@ -23,7 +23,7 @@ def run_Yolo() :
     st.write("서버의 한계로 시간이 오래 걸릴수 있습니다.")
 
     if _btn == True:
-        subprocess.call(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
+        os.system(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
         # subprocess.call(f"python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
 
     try:
