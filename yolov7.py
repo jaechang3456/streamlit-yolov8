@@ -23,7 +23,7 @@ def run_Yolo() :
     st.write("서버의 한계로 시간이 오래 걸릴수 있습니다.")
 
     if _btn == True:
-        os.system(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
+        os.system(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}")
         # subprocess.call(f"python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
 
     try:
