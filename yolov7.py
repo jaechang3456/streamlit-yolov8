@@ -9,7 +9,6 @@ def run_Yolo() :
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
     st.text("공백이 있는 파일의 경우 지원하지 않습니다.")
-    os.system("ls ./data")
 
     try:
         with open(f'./data/{uploaded_file.name}', 'wb') as f:
@@ -30,12 +29,15 @@ def run_Yolo() :
 
     try:
         _chk = st.checkbox("결과보기")
+        st.text("동영상의 경우, H264코덱으로의 변환과정이 필요해 더욱 시간이 걸립니다.")
         if _chk == True:
             if uploaded_file.name.endswith(image):
                 st.image(f'./runs/detect/exp/{uploaded_file.name}')
             elif uploaded_file.name.endswith(video):
-                os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
-                st.video("res.mp4")
+                if not os.path.exists("res.mp4"):
+                    os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
+                else:
+                    st.video("res.mp4")
 
     except:
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
