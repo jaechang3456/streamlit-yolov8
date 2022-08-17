@@ -26,8 +26,6 @@ def main():
         st.text('yolov7 custom모델의 Inference 결과를 확인하시려면 사이드바 메뉴에서 선택하세요.')
 
     elif choice == 'yolov7' :
-        os.system("git lfs pull")
-        st.subheader('yolov7')
         run_Yolo()
 
 if __name__ == '__main__':

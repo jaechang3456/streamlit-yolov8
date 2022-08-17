@@ -5,6 +5,8 @@ image = (".jpg", ".png", ".jpeg")
 video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
+    os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt")
+    st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
     st.text("공백이 있는 파일의 경우 지원하지 않습니다.")
@@ -14,7 +16,7 @@ def run_Yolo() :
             f.write(uploaded_file.getbuffer())
     except AttributeError:
         st.warning("이미지나, 동영상 파일을 업로드해주세요.")
-        
+
     _btn = st.button("RUN Inference")
     st.write("서버의 한계로 시간이 오래 걸릴수 있습니다.")
 
