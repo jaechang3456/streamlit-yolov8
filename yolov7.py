@@ -36,10 +36,12 @@ def run_Yolo() :
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
 
 
-    if os.path.exists("./runs/detect"):
-        os.system(f"rm -r ./runs/detect/")
-    #     os.system("rm res.mp4")
-        os.system(f"rm ./data/{uploaded_file.name}")
+    downlod_file = st.download_button("결과를 다운로드 하실거면 클릭하세요")
+    
+    # if os.path.exists("./runs/detect"):
+    #     os.system(f"rm -r ./runs/detect/")
+    # #     os.system("rm res.mp4")
+    #     os.system(f"rm ./data/{uploaded_file.name}")
 
     
 
