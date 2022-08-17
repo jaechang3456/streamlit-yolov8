@@ -5,6 +5,9 @@ image = (".jpg", ".png", ".jpeg")
 video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
+    os.system("git lfs untrack '*.pt'")
+    os.system("git rm -cached '*.pt'")
+    os.system("git add '*.pt'")
     st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
@@ -22,7 +25,6 @@ def run_Yolo() :
 
     if _btn == True:
         os.system(f"/home/appuser/venv/bin/python detect.py --weights best.pt --source ./data/{uploaded_file.name}")
-        # subprocess.call(f"python detect.py --weights best.pt --source ./data/{uploaded_file.name}", shell=True)
 
     try:
         _chk = st.checkbox("결과보기")
