@@ -38,12 +38,14 @@ def run_Yolo() :
                     os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
                 else:
                     st.video("res.mp4")
+                    with open("./res.mp4", "rb") as fp:
+                        st.download_button("결과를 다운로드 하실거면 클릭하세요", fp,"res.mp4","video/mp4" )
 
     except:
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
 
 
-    downlod_file = st.download_button("결과를 다운로드 하실거면 클릭하세요", data="res.mp4")
+    
     
     
         
