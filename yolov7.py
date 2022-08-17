@@ -9,6 +9,7 @@ def run_Yolo() :
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
     st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
     st.text("공백이 있는 파일의 경우 지원하지 않습니다.")
+    os.system("ls ./data")
 
     try:
         with open(f'./data/{uploaded_file.name}', 'wb') as f:
@@ -35,10 +36,10 @@ def run_Yolo() :
         st.warning("Inference 결과가 없습니다. Inference 먼저 수행하십시오.")
 
 
-    if os.path.exists("./runs/detect"):
-        os.system(f"rm -r ./runs/detect/")
-    # os.system("rm res.mp4")
-    # os.system(f"rm ./data/{uploaded_file.name}")
+    # if os.path.exists("./runs/detect"):
+    #     os.system(f"rm -r ./runs/detect/")
+    #     os.system("rm res.mp4")
+    #     os.system(f"rm ./data/{uploaded_file.name}")
 
     
 

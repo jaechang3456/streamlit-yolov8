@@ -5,8 +5,6 @@ from yolov7 import run_Yolo
 if not os.path.exists("./data/best.pt"):
     os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt -O ./data/best.pt")
     os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/traced_model.pt -O ./data/traced_model.pt")
-    os.system("df -h")
-    os.system("ls -al")
 
 def main():
     
