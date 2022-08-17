@@ -32,11 +32,11 @@ def main():
         st.text("서버의 용량 문제로, 여러개의 파일은 지원하지 않습니다.")
         st.text("공백이 있는 파일의 경우 지원하지 않습니다.")
 
-    try:
-        with open(f'./data/{uploaded_file.name}', 'wb') as f:
-            f.write(uploaded_file.getbuffer())
-    except AttributeError:
-        st.warning("이미지나, 동영상 파일을 업로드해주세요.")
+        try:
+            with open(f'./data/{uploaded_file.name}', 'wb') as f:
+                f.write(uploaded_file.getbuffer())
+        except AttributeError:
+            st.warning("이미지나, 동영상 파일을 업로드해주세요.")
         run_Yolo()
 
 if __name__ == '__main__':
