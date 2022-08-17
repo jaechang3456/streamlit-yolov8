@@ -5,7 +5,7 @@ image = (".jpg", ".png", ".jpeg")
 video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
-    os.system("git lfs untrack '*.pt'")
+    os.system("rm .gitattribures")
     os.system("git rm -cached '*.pt'")
     os.system("git add '*.pt'")
     st.subheader('yolov7')
