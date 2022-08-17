@@ -5,7 +5,7 @@ image = (".jpg", ".png", ".jpeg")
 video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
-    os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt -O ./best.pt")
+    os.system("sudo wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/best.pt -O ./best.pt")
     # os.system("wget https://github.com/jaechang3456/streamlit-yolov7/raw/main/traced_model.pt -O ./traced_model.pt")
     st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
