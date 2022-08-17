@@ -5,8 +5,8 @@ image = (".jpg", ".png", ".jpeg")
 video = (".mp4", ".avi", ".wmv")
 
 def run_Yolo() :
-    os.system("rm .gitattribures")
-    os.system("git rm -cached '*.pt'")
+    os.system("rm .gitattributes")
+    os.system("git rm --cached '*.pt'")
     os.system("git add '*.pt'")
     st.subheader('yolov7')
     uploaded_file = st.file_uploader("Inference할 이미지나, 동영상 파일을 선택해주세요.")
