@@ -14,7 +14,7 @@ def run_Yolo() :
     try:
         with open(f'./data/{uploaded_file.name}', 'wb') as f:
             f.write(uploaded_file.getbuffer())
-    except:
+    except AttributeError:
         st.warning("이미지나, 동영상 파일을 업로드해주세요.")
         
 
