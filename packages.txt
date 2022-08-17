@@ -1,3 +1,2 @@
 ffmpeg
 wget
-sudo
