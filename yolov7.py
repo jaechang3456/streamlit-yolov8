@@ -24,8 +24,8 @@ def run_Yolo() :
             os.system(f"rm -r ./runs/detect/")
             os.system("rm res.mp4")
             os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
-        else:
-            os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
+    
+        os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
 
     try:
         _chk = st.checkbox("결과보기")
