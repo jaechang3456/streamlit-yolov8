@@ -4,3 +4,4 @@ tqdm
 pyyaml
 seaborn
 opencv-python-headless
+scipy
