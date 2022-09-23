@@ -22,8 +22,6 @@ def run_Yolo() :
     if _btn == True:
         if os.path.exists("./runs/detect"):
             os.system(f"rm -r ./runs/detect/")
-            os.system("rm res.mp4")
-            os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
     
         os.system(f"/home/appuser/venv/bin/python detect.py --weights ./data/best.pt --source ./data/{uploaded_file.name}")
 
@@ -37,10 +35,10 @@ def run_Yolo() :
                     st.download_button("결과를 다운로드 하실거면 클릭하세요", fp,"res.jpg","image/jpg" )
             elif uploaded_file.name.endswith(video):
                 if not os.path.exists("res.mp4"):
-                    os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 res.mp4")
+                    os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 ./runs/detect/exp/res.mp4")
                 else:
-                    st.video("res.mp4")
-                    with open("./res.mp4", "rb") as fp:
+                    st.video("./runs/detect/exp/res.mp4")
+                    with open("./runs/detect/exp/res.mp4", "rb") as fp:
                         st.download_button("결과를 다운로드 하실거면 클릭하세요", fp,"res.mp4","video/mp4" )
 
     except:
