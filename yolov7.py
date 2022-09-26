@@ -34,7 +34,7 @@ def run_Yolo() :
                 with open(f'./runs/detect/exp/{uploaded_file.name}', "rb") as fp:
                     st.download_button("결과를 다운로드 하실거면 클릭하세요", fp,"res.jpg","image/jpg" )
             elif uploaded_file.name.endswith(video):
-                if not os.path.exists("res.mp4"):
+                if not os.path.exists("./runs/detect/exp/res.mp4"):
                     os.system(f"ffmpeg -i ./runs/detect/exp/{uploaded_file.name} -vcodec libx264 -f mp4 ./runs/detect/exp/res.mp4")
                 else:
                     st.video("./runs/detect/exp/res.mp4")
