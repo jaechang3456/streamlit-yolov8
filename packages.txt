@@ -1,3 +1,4 @@
+libc6=2.34
 libgl1
 ffmpeg
 wget
