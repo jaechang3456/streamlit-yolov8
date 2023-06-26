@@ -1,4 +1,4 @@
-libc6=2.34
+libc6=2.35-0ubuntu3
 libgl1
 ffmpeg
 wget
